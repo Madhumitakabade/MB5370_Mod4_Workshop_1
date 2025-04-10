@@ -5,8 +5,8 @@ date: "2025-04-08"
 output: html_document
 ---
 
-#reading the data file
-its in the working directory now, and now you are asking R to read it for further analysis. read.csv cannot open excel files, so read_excel(). 
+#reading the data file its in the working directory now, and now you are asking R to read it for further analysis. read.csv cannot open excel files, so read_excel().
+
 ```{r}
 library(janitor)
 getwd()#before loading data always do this.
@@ -16,6 +16,7 @@ as_tibble(data)
 ```
 
 #cleaning and filtering data and following ben
+
 ```{r}
 str(data)
 shark_program <- read_csv("../data/shark_data_workshop3.csv") |>
@@ -28,7 +29,6 @@ head(shark_program) #shows only the first six rows of your data set.
 
 
 ```
-
 
 ```{r}
 shark_catch <- 
@@ -49,8 +49,8 @@ head(shark_catch)
 head(turtle_catch)
 ```
 
-#pivot longer
-we are doing data reshaping turning a wide table format into a long one.    
+#pivot longer we are doing data reshaping turning a wide table format into a long one.
+
 ```{r}
 
 shark_catch_long <- 
@@ -64,6 +64,7 @@ turtle_catch_long <-
 view(shark_catch_long)
 view(turtle_catch_long)
 ```
+
 #make stat tibbles
 
 ```{r}
@@ -94,6 +95,7 @@ view(combine_stats)
 ```
 
 #creating the plot
+
 ```{r}
 ggplot(data = combine_stats, aes(x =Year, y = Mean, fill = Taxa, shape = Taxa), colour = "black") +
   geom_line() +
@@ -101,4 +103,9 @@ ggplot(data = combine_stats, aes(x =Year, y = Mean, fill = Taxa, shape = Taxa), 
     scale_shape_manual(values = c(23, 24))
 ```
 
+#exporting the plot
 
+```{r}
+my_shark_plot <- ggsave("../output/shark_plot.png", width = 8, height = 5, dpi = 300)
+
+```
