@@ -382,7 +382,7 @@ ggplot(data = mpg) +
   geom_point(mapping = aes(x = displ, y = hwy))
 ```
 
-
+workshop 2 start.
 #Labels
 Labs() function adds label which help you communicate your key findings. Good labels communicate key findings better and also comply with formatting requirements of scientific journals.
 
