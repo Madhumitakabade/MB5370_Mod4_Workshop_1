@@ -6,6 +6,11 @@ output: html_document
 ---
 
 #reading the data file its in the working directory now, and now you are asking R to read it for further analysis. read.csv cannot open excel files, so read_excel().
+```{r}
+library(tidyverse)
+
+```
+
 
 ```{r}
 library(janitor)
